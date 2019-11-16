@@ -25,5 +25,5 @@ function Header({ cartSize }) {
 }
 
 export default connect(state => ({
-  cartSize: state.cart.length,
+  cartSize: state.cart.reduce((total, product) => total + product.amount, 0),
 }))(Header);
