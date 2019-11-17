@@ -1,6 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import {
   MdRemoveCircleOutline,
   MdAddCircleOutline,
@@ -102,5 +103,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(CartActions, dispatch);
+
+Cart.propTypes = {
+  updateAmount: PropTypes.func.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
+  total: PropTypes.number.isRequired,
+  cart: PropTypes.shape().isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
